@@ -1,0 +1,845 @@
+<html>
+	<head>
+		<!-- HTML 4.01: How to interpret special characters -->
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" /><!-- So iOS will no longer auto-detect and style phone number -->
+		<meta content="telephone=no" name="format-detection" /><!-- Responsive Viewport-->
+		<meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" name="viewport" /><!-- Use the latest (edge) version of IE rendering engine -->
+		<meta content="IE=9; IE=8; IE=7; IE=EDGE" http-equiv="X-UA-Compatible" /><!-- The title tag shows in email notifications, like Android 4.4. -->
+		<title>
+			Alside
+		</title>
+		<!-- ############################################### -->
+		<!-- START :: BASE CSS BOILERPLATE STYLES ONLY -->
+		<!-- ############################################### -->
+		<style type="text/css">
+		/*<![CDATA[*/
+		    /*
+		    -----------------------------------------------
+		    START :: BASE CSS BOILERPLATE DEFAULTS
+		    -----------------------------------------------
+		    */
+
+
+		    /* Client-specific Styles */
+		    #outlook a { padding:0; }
+
+		    /* Force Outlook to provide a "view in browser" menu link. */
+		    /* Remove spaces around the email design added by some email clients. Also, some email clients bump up the font sizes 
+		    for readability if they are set too low. The text-size-adjust styles tell the client (iOS, Safari, Windows Mobile) not to resize. */
+
+		    /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+		    body {
+		       width:100% !important; 
+		       -webkit-text-size-adjust:100%; 
+		       -ms-text-size-adjust:100%; 
+		       margin:0; padding:0;
+		       topmargin:0; rightmargin:0; 
+		       bottommargin:0; leftmargin:0;
+		    }
+
+		    /* Force Outlook.com (formerly Hotmail) to display emails at full width & line spacing. Hotmail appends .ExternalClass */
+		    .ExternalClass {width:100%;} 
+		    .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;} 
+		    
+		    /* ANDROID 4.4 OffCenter FIX */
+		    div { Margin:0 !important; padding:0 !important; float: none !important; }
+
+		    /* Overrides styles added images. */
+		    img {outline:none; text-decoration:none;border:none; -ms-interpolation-mode: bicubic;} /* ensure that images look better in IE */
+		    
+		    a img { border:none; }   /* remove border around images */
+		    
+		    /* Next 2 lines stops Outlook from adding extra spacing to tables. */
+		    table,
+		    table td { margin:0; padding: 0; border-collapse:collapse !important; border-spacing: 0 !important; mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; mso-cellspacing: 0 !important; mso-padding-alt: 0 0; }
+		    
+		    a {color: #000000; text-decoration: none;text-decoration:none!important;}
+		    
+		    a:visited { color: #CC4444; text-decoration: none;}
+
+		    a:visited span#inbrowser {color:#ffffff;cursor:none;}/* Don't forget to put a span tag around the view in browser link text with the id inbrowser. This was put in place to "hide" the link when you are actually viewing it in the browser */
+		    
+		    a:focus   { color: #CC4444; text-decoration: underline;} 
+		    a:hover   { color: #CC4444; text-decoration: underline;} 
+
+		    h2,h3,h4,h5,h6 { color:#000000 !important; } /* Outlook.com (formerly Hotmail) sets its own green color on heading elements h2-h6 */
+
+		    /*
+		    -----------------------------------------------
+		    END :: BASE CSS BOILERPLATE DEFAULTS
+		    -----------------------------------------------
+		    */
+
+		    /*
+		    -----------------------------------------------
+		    START :: BASE CSS BOILERPLATE TEMPLATE
+		    -----------------------------------------------
+		    */
+
+		    /* Clients Affected: iPad, iPhone, Android 4.4, Apple Mail 8, AOL Mail, Outlook '00, 02, '03', '07, '10, '11 (OSX), '13, Outlook.com. Office 365??? */
+
+		    .tpl-outer                                                  { margin: 0 !important; padding: 0 !important;  border: 0 !important; width: 100% !important; max-width: 600px !important; line-height: 100% !important; }
+
+		    .tpl-outer td                                               { padding: 0 !important; }
+
+		    .tpl-col                                                    { margin: 0 !important; border: 0 !important; width: 100% !important; max-width: 600px !important; line-height: 100% !important; }
+
+		    .tpl-col-1of2,
+		    .tpl-col-1of2-medium,
+		    .tpl-col-1of2-large                                         { margin: 0 !important; border: 0 !important; width: 300px !important; line-height: 100% !important; }
+
+		    .tpl-col-1of2 .tpl-col-1of2,
+		    .tpl-col-1of2-medium .tpl-col-1of2-medium                   { margin: 0 !important; border: 0 !important; width: 150px !important; line-height: 100% !important; }
+
+		    .tpl-col-1of2-large .tpl-col-1of2-large                     { margin: 0 !important; border: 0 !important; width: 300px !important; line-height: 100% !important; }
+
+		    .tpl-comp-fluid-text-left td.tpl-col-content                { text-align: left !important; }
+
+
+		    /*  
+		       -------------------------------------------------------------------------
+		       RESET COLUMNS WHEN WRAPPED IN OUTLOOK CONTAINERS - Specifically '07 & '10 
+		       -------------------------------------------------------------------------
+		       MUST BE LAST SO AS NON-MEDIA QUERY CSS DEFAULTS SO IT's NOT OVERRIDEN
+		    */
+		    
+		    td.tpl-col-1of2-outlook table.tpl-col-1of2-medium,
+		    td.tpl-col-1of2-outlook table.tpl-col-1of2-large { width: 100%; }
+
+		    td.tpl-col-1of2-outlook table.tpl-col-1of2-medium table.tpl-col-1of2-medium,
+		    td.tpl-col-1of2-outlook table.tpl-col-1of2-medium table.tpl-col-1of2-large  { width: 100%; }
+		    
+		    /*
+		    -----------------------------------------------
+		    END :: BASE CSS BOILERPLATE TEMPLATE
+		    -----------------------------------------------
+		    */
+
+		    /*
+		    -----------------------------------------------
+		    START :: BASE CSS BOILERPLATE MOBILE
+		    -----------------------------------------------
+		    */
+
+		    @media only screen and (max-width: 599px)  {
+		       
+		       /* Clients Affected:  iPad, iPhone, Android 4.4, Outlook '02 & '03  */
+
+		       .tpl-outer                                                     { margin: 0 !important; border: 0 !important; width: 100% !important; max-width: 100% !important; }
+
+		       .tpl-col                                                       { margin: 0 !important; border: 0 !important; width: 100% !important; max-width: 100% !important; line-height: 100% !important; }
+
+		       .tpl-col-1of2,                      
+		       .tpl-col-1of2-medium,
+		       .tpl-col-1of2-large                                            { width: 50% !important; max-width: 599px !important; }
+
+		       .tpl-col-1of2 .tpl-col-1of2,
+		       .tpl-col-1of2-medium .tpl-col-1of2-medium                      { width: 100% !important; max-width: 50% !important; }
+
+		       .tpl-col-1of2-large .tpl-col-1of2-large                        { width: 100% !important; max-width: 100% !important; }
+
+		       .tpl-col-1of2 .tpl-col-1of2 img,
+		       .tpl-col-1of2-medium .tpl-col-1of2-medium img,
+		       .tpl-col-1of2-large .tpl-col-1of2-larg img                   { width: 100% !important; max-width: 599px !important; }
+		    }
+
+		    @media only screen and (max-width: 480px)  {
+		       
+		       /* Clients Affected:  iPad, iPhone, Android 4.4 */         
+		       
+		       .tpl-col-1of2,
+		       .tpl-col-1of2-medium,
+		       .tpl-col-1of2-large                                           { width: 50% !important; max-width: 50% !important; }
+
+		       .tpl-col-1of2 .tpl-col-1of2,
+		       .tpl-col-1of2-medium .tpl-col-1of2-medium,
+		       .tpl-col-1of2-large .tpl-col-1of2-large                       { width: 100% !important; max-width: 100% !important; }
+		       
+		       .tpl-col-1of2 .tpl-col-1of2 img,
+		       .tpl-col-1of2-medium .tpl-col-1of2-medium img,
+		       .tpl-col-1of2-large.tpl-col-1of2-large img                    { width: 100% !important; max-width: 340px !important; }
+		    }
+
+		    @media only screen and (max-width: 340px)  {
+		       
+		       /* Clients Affected: iPhone, Android 4.4 */
+
+		       .tpl-col-1of2,
+		       .tpl-col-1of2-medium,
+		       .tpl-col-1of2-large                                           { width: 50% !important; max-width: 50% !important; }
+
+		       .tpl-col-1of2 .tpl-col-1of2,
+		       .tpl-col-1of2-medium .tpl-col-1of2-medium,
+		       .tpl-col-1of2-large .tpl-col-1of2-large                       { width: 100% !important; max-width: 100% !important; }
+		       
+		       .tpl-col-1of2 .tpl-col-1of2 img,
+		       .tpl-col-1of2-medium .tpl-col-1of2-medium img,
+		       .tpl-col-1of2-large.tpl-col-1of2-large img                    { width: 100% !important; max-width: 340px !important; }
+
+		    }
+
+		    /*
+		    -----------------------------------------------
+		    END :: BASE CSS BOILERPLATE SMALL PHONE
+		    -----------------------------------------------
+		    */
+		/*]]>*/
+		</style>
+		<!-- ###############################################  -->
+		<!-- END :: BASE CSS BOILERPLATE STYLES ONLY  -->
+		<!-- ############################################### -->
+		<!-- ############################################### -->
+		<!-- START :: CUSTOM EMAIL CLIENT CSS STYLES ONLY -->
+		<!-- ############################################### -->
+		<style type="text/css">
+		/*<![CDATA[*/
+		    
+		    /* Clients Affected: iPad, iPhone, Android 4.4, Apple Mail 8, AOL Mail, Yahoo! Mail, Outlook '00, 02, '03', '07, '10, '11 (OSX), '13, Outlook.com */
+		    .link-black{
+		       font-weight: normal!important;
+		       text-decoration:none!important;
+		    }
+
+		    /*
+		    -----------------------------------------------
+		    START :: CUSTOM TABLETS
+		    -----------------------------------------------
+		    */
+		    @media only screen and (max-width: 599px)  {
+		       /* Clients Affected: iPad, iPhone, Android 4.4  */
+		    }
+		    /*
+		    -----------------------------------------------
+		    END :: CUSTOM TABLETS
+		    -----------------------------------------------
+		    */
+
+		    /*
+		    -----------------------------------------------
+		    START :: CUSTOM SMALL PHONE : LANDSCAPE
+		    -----------------------------------------------
+		    */
+		    @media only screen and (max-width: 480px)  {
+		       /* Clients Affected: iPad, iPhone, Android 4.4  */
+		      }
+
+		    }
+		    /*
+		    -----------------------------------------------
+		    END :: CUSTOM SMALL PHONE : LANDSCAPE
+		    -----------------------------------------------
+		    */
+
+		    /*
+		    -----------------------------------------------
+		    START :: CUSTOM SMALL PHONE
+		    -----------------------------------------------
+		    */
+		    @media only screen and (max-width: 340px)  {
+		       /* Clients Affected: iPad, iPhone, Android 4.4  */
+
+		    }
+		    /*
+		    -----------------------------------------------
+		    END :: CUSTOM SMALL PHONE
+		    -----------------------------------------------
+		    */
+		    
+
+		/*]]>*/
+		</style><!-- 
+   ###############################################
+   END :: CUSTOM EMAIL CLIENT CSS STYLES ONLY
+   ###############################################
+   -->
+	</head>
+	<body>
+		<!-- MASTER WRAPPER -->
+		<table align="center" bgcolor="#666666" border="0" cellpadding="0" cellspacing="0" class="tpl-wrapper" width="100%">
+			<tr>
+				<td align="center" bgcolor="#666666" valign="top" width="100%">
+					<!-- COMPONENT ROW : ONE COLUMN : TEXT (Ex: EYEBROW) -->
+					<table align="center" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" width="100%">
+						<tr>
+							<td align="center" width="100%">
+								<!--[if (gte mso 9)|(IE)]>
+                  <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                     <tr>
+                        <td width="600" align="left" valign="top">
+                           <table width="600" align="left" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                              <tr>
+                                 <td width="600" align="left" valign="top" class="tpl-col-outlook" style="display: inline-block;">
+                                 <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+								<table align="left" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="tpl-col" id="eyebrow" width="100%">
+									<tr>
+										<td align="left" valign="top" width="100%">
+											<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td align="left" valign="top">
+														<table align="center" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="tpl-col-content" width="100%">
+															<tr>
+																<td align="left" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+																<td align="center" class="tpl-col-content" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #666666; mso-line-height-rule: exactly; line-height: 100%;" valign="top">
+																	<a href="http://insidealside.com/?keycode=%%keycode%%" target="_blank" name="html_eyebrow_link" style="color: #666666; text-decoration: none;" xt="SPCLICK" >
+																		<span style="color: #666666;">Get a free Alside baseball hat when you complete our short survey.</span>
+																	</a>
+																</td>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="left" colspan="3" height="8" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+																<td align="center" class="tpl-col-content" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #ff0000; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	<a name="html_webversion" style="color: #ff0000; mso-line-height-rule: exactly; line-height:100%;" xt="SPCLICKTOVIEW" href="#SPCLICKTOVIEW" target="_blank"><span style="color: #ff0000;">View email in browser.</span></a>
+																</td>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="left" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	&nbsp;
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table><!--[if (gte mso 9)|(IE)]>
+                                 </td>
+                              </tr>
+                           </table>
+                        </td>
+                     </tr>
+                  </table>
+                  <![endif]-->
+							</td>
+						</tr>
+					</table>
+					<!-- COMPONENT ROW : ONE COLUMN : HEADER IMAGE -->
+					<table align="center" bgcolor="#666666" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" width="100%">
+						<tr>
+							<td align="center" width="100%">
+								<!--[if (gte mso 9)|(IE)]>
+                              <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                                 <tr>
+                                    <td width="600" align="left" valign="top">
+                                       <table width="600" align="left" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                          <tr>
+                                             <td width="600" align="left" valign="top" class="tpl-col-outlook" style="display: inline-block;">
+                                             <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+								<table align="left" border="0" cellpadding="0" cellspacing="0" class="tpl-col" id="logo" width="100%">
+									<tr>
+										<td align="left" valign="top" width="100%">
+											<table align="left" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td align="left">
+														<table align="center" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="tpl-col-content" width="100%">
+															<tr>
+																<td align="center" class="tpl-col-content" style="mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	<a href="http://www.InsideAlside.com/?keycode=%%keycode%%" name="html_header_link" style="display: inline-block; mso-line-height-rule: exactly; line-height: 100%; margin: 0 padding: 0;" target="_blank" xt="SPCLICK" ><img alt="TAKE A QUICK SURVEY GET A FREE HAT" title="TAKE A QUICK SURVEY GET A FREE HAT" border="0" name="header-image" src="http://www.mmcwebthing.com/Silverpop_img_host/AMI/AMI-0686-Siding-Survey/AMI-0686-EM-Siding-Survey-v7-Header.jpg" style="width: 100%; max-width: 600px; height: auto; display: inline; background-color: transparent;" /></a>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table><!--[if (gte mso 9)|(IE)]>
+                                             </td>
+                                          </tr>
+                                       </table>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <![endif]-->
+							</td>
+						</tr>
+					</table>
+					<table align="center" bgcolor="#666666" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" width="100%">
+						<tr>
+							<td align="center" width="100%">
+								<!--[if (gte mso 9)|(IE)]>
+                           <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                              <tr>
+                                 <td width="600" align="left" valign="top">
+                                    <table width="600" align="left" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                       <tr>
+                                          <td width="600" align="left" valign="top" class="tpl-col-outlook" style="display: inline-block;">
+                                          <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+								<table align="left" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="tpl-col" width="100%">
+									<tr>
+										<td align="left" valign="top" width="100%">
+											<table align="left" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td align="center" valign="top">
+														<table align="center" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%">
+															<tr>
+																<td align="center" colspan="3" height="35" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="center" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+																<td align="center" style="font-family: Arial, Helvetica, sans-serif; font-size: 22px; color: #151347; mso-line-height-rule: exactly; line-height: 125%;" valign="top">
+																	<strong>How can we serve you better?</strong>
+																</td>
+																<td align="center" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="center" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	&nbsp;
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table><!--[if (gte mso 9)|(IE)]>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                           </table>
+                           <![endif]-->
+							</td>
+						</tr>
+					</table>
+					<!-- INFO LEFT | RIGHT -->
+					<table align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#ffffff" class="tpl-outer" width="100%">
+						<tr>
+							<td align="center"><!--[if (gte mso 9)|(IE)]>
+                     <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                           <td width="300" align="left" valign="top">
+                              <table width="290" align="right" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                 <tr>
+                                    <td width="290" align="left" valign="top" class="tpl-col-outlook" style="display: inline-block;">
+                                    <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+                                    <table align="left" border="0" cellpadding="0" cellspacing="0" class="tpl-col-1of2 tpl-col-left" id="info-left" width="100%">
+                                    	<tr>
+                                    	<td align="left" valign="top" width="100%"><table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">                                     <tr>                                        <td align="left" valign="top"><table align="center" border="0" cellpadding="0" cellspacing="0" class="tpl-col-content" width="100%">                                              <tr>                                                 <td align="left" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">&nbsp;</td>                                              </tr>                                              <tr>
+                                    <td align="center" class="tpl-col-content" valign="top"><a href="http://insidealside.com/?keycode=%%KEYCODE%%" id="hat-img_link_html" name="hat-img_link_html" style="display: inline-block;" target="_blank" title="Hat" xt="SPCLICK"><img alt="Hat" border="0" id="hat_img" name="hat_img" src="http://www.mmcwebthing.com/Silverpop_img_host/AMI/AMI-0686-Siding-Survey/AMI-0686-EM-Siding-Survey-v7-Hat.jpg" style="width: 163px; max-width: 163px; min-width: 163px; background-color: transparent;" title="Hat" /></a><br><br><table align="center" height="30" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0"><tr><td align="center" bgcolor="#ffffff" height="30" style="font-family: Arial, Sans-Serif; font-size: 14px; mso-line-height-rule: exactly; line-height: 100%; border:1px solid #666666;" valign="middle" width="150"><a href="http://www.insidealside.com/?keycode=%%keycode%%" id="html_cta_link" name="html_cta_link" style="font-family: Arial, Sans-Serif; font-size: 15px; font-weight: bold; text-decoration: none; color: #151347; vertical-align: middle; text-align: center;" target="_blank" title="TAKE THE SURVEY" xt="SPCLICK">TAKE THE SURVEY</a></td></tr></table></td>                                              </tr>                                              <tr>                                                 <td align="left" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">&nbsp;</td>                                              </tr>                                           </table></td>                                     </tr>                                  </table></td>                            </tr>                         </table><!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </td>
+                           <td width="300" align="right" valign="top">
+                              <table width="290" align="right" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                 <tr>
+                                    <td width="290" align="right" valign="top" class="tpl-col-outlook" style="display: inline-block;">
+                                    <![endif]-->
+                                    <table align="center" border="0" cellpadding="0" cellspacing="0" class="tpl-col-1of2 tpl-col-left" id="info-right" style="max-width:270px;" width="100%">
+                                    	<tr>
+                                    		<td align="right" valign="top" width="100%">
+                                    			<table align="right" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    				<tr>
+                                    					<td align="center">
+                                    						<table align="center" border="0" cellpadding="0" cellspacing="0" class="tpl-col-content" width="100%">
+                                    							<tr>
+                                    								<td align="left" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">&nbsp;</td>
+	                                    						</tr>
+	                                    						<tr>
+	                                    							<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #666666; mso-line-height-rule: exactly; line-height: 125%;" valign="top">
+																		At Alside Supply, we strive to provide you with the quality products and services you need to run a successful business. We noticed you haven't been ordering a lot lately and want to know if there's anything we can do to serve you better.
+																	</td>
+																</tr>
+																<tr>
+																	<td align="left" colspan="3" height="10" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">&nbsp;</td>
+																</tr>
+																<tr>
+																	<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #666666; mso-line-height-rule: exactly; line-height: 125%;" valign="top">Please answer <a href="http://insidealside.com/?keycode=%%keycode%%" target="_blank" style="color: #151347;font-weight: bold;"><span style="color: #151347;font-weight: bold;"><em>these 5 quick questions</em></span></a> and as a thank you, we'll send you a free Alside baseball hat.
+																	</td>
+																</tr>
+																<tr>
+																	<td align="left" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">&nbsp;</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+												</table>
+											</td>
+										</tr>
+									</table>
+							<!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </td>
+                        </tr>
+                     </table>
+                     <![endif]-->
+                	</td>
+                 </tr>
+             </table>
+					<!-- ROW | ONE COLUMN | SPACER -->
+					<table align="center" bgcolor="#666666" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" width="100%">
+						<tr>
+							<td align="center" width="100%">
+								<!--[if (gte mso 9)|(IE)]>
+                              <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                                 <tr>
+                                    <td width="600" align="left" valign="top">
+                                       <table width="600" align="left" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                          <tr>
+                                             <td width="600" align="left" valign="top" class="tpl-col-outlook">
+                                             <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+								<table align="left" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="tpl-col" id="spacer" width="100%">
+									<tr>
+										<td align="left" valign="top" width="100%">
+											<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td align="left" valign="top">
+														<table align="center" border="0" cellpadding="0" cellspacing="0" class="tpl-col-content" width="100%">
+															<tr>
+																<td align="left" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #CCCCCC; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+																<td align="center" class="tpl-col-content" height="20" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #CCCCCC;" valign="middle">
+																	<p style="width: 100%; height: 2px; background-color: #CCCCCC; mso-line-height-rule: exactly; line-height:100%;">
+																		&nbsp;
+																	</p>
+																</td>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #CCCCCC; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="left" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	&nbsp;
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table><!--[if (gte mso 9)|(IE)]>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                           </table>
+                           <![endif]-->
+							</td>
+						</tr>
+					</table>
+					<table align="center" bgcolor="#666666" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" width="100%">
+						<tr>
+							<td align="center" width="100%">
+								<!--[if (gte mso 9)|(IE)]>
+                           <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                              <tr>
+                                 <td width="600" align="left" valign="top">
+                                    <table width="600" align="left" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                       <tr>
+                                          <td width="600" align="left" valign="top" class="tpl-col-outlook" style="display: inline-block;">
+                                          <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+								<table align="left" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="tpl-col" width="100%">
+									<tr>
+										<td align="left" valign="top" width="100%">
+											<table align="left" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td align="left" valign="top">
+														<table align="center" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%">
+															<tr>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+																<td align="center" class="tpl-col-content" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #666666; mso-line-height-rule: exactly; line-height: 100%;" valign="top">
+																	<strong style="color: #00539f; font-size: 20px;">For additional information on our products:</strong><br><br><a href="tel:18006760983" style="color: #666666;"><span style="color: #666666;">800.676.0983</span></a> or <a href="mailto:Info@InsideAlside.com" style="color: #666666;"><span style="color: #666666;">Info@InsideAlside.com</span></a>
+																</td>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table><!--[if (gte mso 9)|(IE)]>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                           </table>
+                           <![endif]-->
+							</td>
+						</tr>
+					</table>
+					<!-- ROW | ONE COLUMN | SPACER -->
+					<table align="center" bgcolor="#666666" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" width="100%">
+						<tr>
+							<td align="center" width="100%">
+								<!--[if (gte mso 9)|(IE)]>
+                              <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                                 <tr>
+                                    <td width="600" align="left" valign="top">
+                                       <table width="600" align="left" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                          <tr>
+                                             <td width="600" align="left" valign="top" class="tpl-col-outlook">
+                                             <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+								<table align="left" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="tpl-col" id="spacer" width="100%">
+									<tr>
+										<td align="left" valign="top" width="100%">
+											<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td align="left" valign="top">
+														<table align="center" border="0" cellpadding="0" cellspacing="0" class="tpl-col-content" width="100%">
+															<tr>
+																<td align="left" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #CCCCCC; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+																<td align="center" class="tpl-col-content" height="20" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #CCCCCC;" valign="middle">
+																	<p style="width: 100%; height: 2px; background-color: #CCCCCC; mso-line-height-rule: exactly; line-height:100%;">
+																		&nbsp;
+																	</p>
+																</td>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #CCCCCC; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="left" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	&nbsp;
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table><!--[if (gte mso 9)|(IE)]>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                           </table>
+                           <![endif]-->
+							</td>
+						</tr>
+					</table>
+					<table align="center" bgcolor="#666666" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" width="100%">
+						<tr>
+							<td align="center" width="100%">
+								<!--[if (gte mso 9)|(IE)]>
+                           <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                              <tr>
+                                 <td width="600" align="left" valign="top">
+                                    <table width="600" align="left" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                       <tr>
+                                          <td width="600" align="left" valign="top" class="tpl-col-outlook" style="display: inline-block;">
+                                          <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+								<table align="left" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="tpl-col" width="100%">
+									<tr>
+										<td align="left" valign="top" width="100%">
+											<table align="left" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td align="left" valign="top">
+														<table align="center" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%">
+															<tr>
+																<td align="center" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+																<td align="center" class="tpl-col-content" style="mso-line-height-rule: exactly; line-height: 100%;" valign="top">
+																	<table align="center" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%">
+																		<tr>
+																			<td align="center" valign="middle" >
+																				<a xt="SPCLICK" title="JobSight 3D" target="_blank" name="jobsight3d-link" href=""><img border="0" title="JobSight 3D" src="http://www.mmcwebthing.com/Silverpop_img_host/AMI/AMI-0686-EM-Siding-Survey-v7-jobsight3d.gif" alt="Jobsight 3D" /></a> <a xt="SPCLICK" title="Home Advisor" target="_blank" name="homeadvisor-link" href="http://www.homeadvisor.com/servlet/ServiceProfessionalRegistrationServlet?entry_point_id=28843109&m=asstdmaterials"><img border="0" title="Home Advisor" src="http://www.mmcwebthing.com/Silverpop_img_host/AMI/AMI-0686-EM-Siding-Survey-v7-home-advisor.gif" alt="Home Advisor" /></a> <a xt="SPCLICK" title="NextSale" target="_blank" href="http://www.alsidenextsale.com" name="www_alsidenextsale_com"><img border="0" title="NextSale" src="http://www.mmcwebthing.com/Silverpop_img_host/AMI/AMI-0686-EM-Siding-Survey-v7-nextsale.gif" name="Cont_6" alt="NextSale" /></a>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td align="center" valign="middle" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">&nbsp;</td>
+																		</tr>
+																		<tr>
+																			<td align="center" valign="middle" >
+																				<img border="0" title="Alside Rewards" src="http://www.mmcwebthing.com/Silverpop_img_host/AMI/AMI-0686-EM-Siding-Survey-v7-asliderewards.gif" name="Cont_7" alt="Alside Rewards" /> <a xt="SPCLICK" title="DESIGN SHOWCASE" target="_blank" href="http://www.alside.com/color-design/" name="www_alside_com_color_design_"><img border="0" title="DESIGN SHOWCASE" src="http://www.mmcwebthing.com/Silverpop_img_host/AMI/AMI-0352-MCMT/AMI-0352-MCMT-EM-WhyAlside-v5b_design-showcase.jpg" name="Cont_8" alt="DESIGN SHOWCASE" /></a> <a target="_blank" href="https://www.synchronyfinancial.com/" xt="SPCLICK" name="www_alside_com_profession"><img border="0" title="Synchrony Financial" src="http://www.mmcwebthing.com/Silverpop_img_host/AMI/AMI-0352-MCMT/AMI-0352-MCMT-EM-WhyAlside-v5b_synchrony.jpg" name="Cont_9" alt="Synchrony Financial" /></a>
+																			</td>
+																		</tr>
+																	</table>
+																</td>
+																<td align="center" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="center" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	&nbsp;
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table><!--[if (gte mso 9)|(IE)]>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                           </table>
+                           <![endif]-->
+							</td>
+						</tr>
+					</table>
+					<!-- COMPONENT ROW : ONE COLUMN : FOOTER -->
+					<table align="center" bgcolor="#666666" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" width="100%">
+						<tr>
+							<td align="center" width="100%">
+								<!--[if (gte mso 9)|(IE)]>
+                              <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                                 <tr>
+                                    <td width="600" align="left" valign="top">
+                                       <table width="600" align="left" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                          <tr>
+                                             <td width="600" align="left" valign="top" class="tpl-col-outlook" style="display: inline-block;">
+                                             <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+								<table align="left" border="0" cellpadding="0" cellspacing="0" class="tpl-col" id="logo" width="100%">
+									<tr>
+										<td align="left" valign="top" width="100%">
+											<table align="left" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td align="left">
+														<table align="center" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="tpl-col-content" width="100%">
+															<tr>
+																<td align="center" class="tpl-col-content" style="mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	<a href="http://www.InsideAlside.com/?keycode=%%keycode%%" name="html_header_link" style="display: inline-block; mso-line-height-rule: exactly; line-height: 100%; margin: 0 padding: 0;" target="_blank" xt="SPCLICK" ><img alt="" border="0" name="blue bottom border" src="http://www.mmcwebthing.com/Silverpop_img_host/AMI/AMI-0528-Cross-Sell-General/AMI-0528-EM-Desktop-v6-Footer-Top-Border.gif" style="width: 100%; max-width: 600px; height: auto; display: inline; background-color: transparent;" /></a>
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table><!--[if (gte mso 9)|(IE)]>
+                                             </td>
+                                          </tr>
+                                       </table>
+                                    </td>
+                                 </tr>
+                              </table>
+                              <![endif]-->
+							</td>
+						</tr>
+					</table>
+					<!-- ROW | TWO COLUMN | FOOTER -->
+					<table align="center" bgcolor="#666666" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" width="100%">
+						<tr>
+							<td align="center" width="100%">
+								<!--[if (gte mso 9)|(IE)]>
+                           <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                              <tr>
+                                 <td width="600" align="left" valign="top">
+                                    <table width="600" align="left" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                       <tr>
+                                          <td width="600" align="left" valign="top" class="tpl-col-outlook" style="display: inline-block;">
+                                          <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+								<table align="left" bgcolor="#ebe6e2" border="0" cellpadding="0" cellspacing="0" class="tpl-col tpl-comp-fluid-text-left" width="100%">
+									<tr>
+										<td align="left" valign="top" width="100%">
+											<table align="left" bgcolor="#ebe6e2" border="0" cellpadding="0" cellspacing="0" width="100%">
+												<tr>
+													<td align="left" valign="top">
+														<table align="left" bgcolor="#ebe6e2" border="0" cellpadding="0" cellspacing="0" class="tpl-col-content" width="100%">
+															<tr>
+																<td align="left" bgcolor="#ebe6e2" colspan="6" height="20" style="font-size:1px; color: #ebe6e2; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+																<td align="left" class="tpl-col-content" style="font-family: Arial, Helvetica, sans-serif; font-size: 13px; color: #666666; mso-line-height-rule: exactly; line-height:150%; text-align: left;" valign="top">
+																	&copy;2016 Alside. All Rights Reserved.<br><br>29 Industrial Park Drive, Binghamton, NY 13904<br><br><a name="html_optout" style="color: #666666; font-family: Arial, Helvetica, sans-serif; font-size: 13px; text-decoration: none;" xt="SPONECLICKOPTOUT" href="#SPONECLICKOPTOUT" target="_blank"><span style="color: #666666;">Unsubscribe from future mailings.</span></a>
+																</td>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #ebe6e2; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+																<td align="left" class="tpl-col-content" style="font-family: Arial, Helvetica, sans-serif; font-size:12px; color: #ebe6e2; mso-line-height-rule: exactly; line-height:100%; text-align: left;" valign="top" width="131">
+																	<img alt="Alside, your friends in business" border="0" name="footer-logo" src="http://www.mmcwebthing.com/Silverpop_img_host/AMI/AMI-0528-Cross-Sell-General/AMI-0528-EM-Desktop-v6-Footer-Logo.gif" style="width: 131px; max-width: 131px; height: auto; display: inline; background-color: transparent;" width="131" />
+																</td>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #ebe6e2; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+																<td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #ebe6e2; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="left" colspan="6" height="10" style="font-size:1px; color: #ebe6e2; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	&nbsp;
+																</td>
+															</tr>
+															<tr>
+																<td align="left" bgcolor="#666666" colspan="6" height="35" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+																	&nbsp;
+																</td>
+															</tr>
+														</table>
+													</td>
+												</tr>
+											</table>
+										</td>
+									</tr>
+								</table><!--[if (gte mso 9)|(IE)]>
+                                          </td>
+                                       </tr>
+                                    </table>
+                                 </td>
+                              </tr>
+                           </table>
+                           <![endif]-->
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table><!-- END MASTER WRAPPER -->
+	</body>
+</html>
