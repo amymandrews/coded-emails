@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+   <head>
+
+      <!-- HTML 4.01: How to interpret special characters -->
+      <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+      <!-- So iOS will no longer auto-detect and style phone number -->
+      <meta content="telephone=no" name="format-detection">
+
+      <!-- Responsive Viewport-->
+      <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;" name="viewport">
+
+      <!-- Use the latest (edge) version of IE rendering engine -->
+      <meta content="IE=9; IE=8; IE=7; IE=EDGE" http-equiv="X-UA-Compatible">
+
+      <!-- The title tag shows in email notifications, like Android 4.4. -->
+      <title>WALZ Certified Mail Automation</title>
+      <!-- ############################################### -->
+      <!-- START :: BASE CSS STYLES ONLY -->
+      <!-- ############################################### -->
+      <style type="text/css">
+             /* Client-specific Styles */
+             #outlook a { padding:0; }
+
+             /* Force Outlook to provide a "view in browser" menu link. */
+             /* Remove spaces around the email design added by some email clients. Also, some email clients bump up the font sizes
+             for readability if they are set too low. The text-size-adjust styles tell the client (iOS, Safari, Windows Mobile) not to resize. */
+
+             /* Prevent Webkit and Windows Mobile platforms from changing default font sizes, while not breaking desktop design. */
+             body {
+                width:100% !important;
+                -webkit-text-size-adjust:100%;
+                -ms-text-size-adjust:100%;
+                margin:0; padding:0;
+                topmargin:0; rightmargin:0;
+                bottommargin:0; leftmargin:0;
+             }
+
+             /* Force Outlook.com (formerly Hotmail) to display emails at full width & line spacing. Hotmail appends .ExternalClass */
+             .ExternalClass {width:100%;}
+             .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div {line-height: 100%;}
+
+             /* ANDROID 4.4 OffCenter FIX */
+             div { margin:0 !important; padding:0 !important; float: none !important; }
+
+             /* Overrides styles added images. */
+             img {outline:none; text-decoration:none;border:none; -ms-interpolation-mode: bicubic;} /* ensure that images look better in IE */
+
+             a img { border:none; }   /* remove border around images */
+
+             /* Next 2 lines stops Outlook from adding extra spacing to tables. */
+             table,
+             table td { margin:0; padding: 0; border-collapse:collapse !important; border-spacing: 0 !important; mso-table-lspace:0pt !important; mso-table-rspace:0pt !important; mso-cellspacing: 0 !important; mso-padding-alt: 0 0; }
+             a {color: #ffffff; text-decoration: none;text-decoration:none!important;}
+             a:visited { color: #ffffff; text-decoration: none;}
+             a:focus   { color: #ffffff; text-decoration: underline;}
+             a:hover   { color: #ffffff; text-decoration: underline;}
+
+             h2,h3,h4,h5,h6 { color:#000000 !important; } /* Outlook.com (formerly Hotmail) sets its own green color on heading elements h2-h6 */
+
+             /* Clients Affected: iPad, iPhone, Android 4.4, Apple Mail 8, AOL Mail, Outlook '00, 02, '03', '07, '10, '11 (OSX), '13, Outlook.com. Office 365??? */
+             .tpl-outer { margin: 0 !important; padding: 0 !important;  border: 0 !important; width: 100% !important; max-width: 600px !important; line-height: 100% !important; }
+             .tpl-outer td { padding: 0 !important; }
+             .tpl-col { margin: 0 !important; border: 0 !important; width: 100% !important; max-width: 600px !important; line-height: 100% !important; }
+             .tpl-comp-fluid-text-left td.tpl-col-content { text-align: left !important; }
+
+                #logo table.tpl-col-content { float: left !important; }
+                #logo td.tpl-col-content { text-align: left !important; }
+                #logo img { width: 120px !important; max-width: 120px !important; }
+             /*
+                -------------------------------------------------------------------------
+                RESET COLUMNS WHEN WRAPPED IN OUTLOOK CONTAINERS - Specifically '07 & '10
+                -------------------------------------------------------------------------
+                MUST BE LAST SO AS NON-MEDIA QUERY CSS DEFAULTS SO IT's NOT OVERRIDDEN
+             */
+             @media only screen and (max-width: 599px)  {
+                /* Clients Affected:  iPad, iPhone, Android 4.4, Outlook '02 & '03  */
+                .tpl-outer { margin: 0 !important; border: 0 !important; width: 100% !important; max-width: 100% !important; }
+                .tpl-col { margin: 0 !important; border: 0 !important; width: 100% !important; max-width: 100% !important; line-height: 100% !important; }
+             }
+      </style>
+
+      <style type="text/css">
+
+             /* Clients Affected: iPad, iPhone, Android 4.4, Apple Mail 8, AOL Mail, Yahoo! Mail, Outlook '00, 02, '03', '07, '10, '11 (OSX), '13, Outlook.com */
+             .canspamaddress a {color: #ffffff !important; text-decoration: none;}
+             /*
+             -----------------------------------------------
+             START :: CUSTOM SMALL PHONE : LANDSCAPE
+             -----------------------------------------------
+             */
+             @media only screen and (max-width: 480px)  {
+                /* Clients Affected: iPad, iPhone, Android 4.4  */
+                .tpl-col-1of2-large {min-width:100% !important;}
+                .tpl-col-1of2-large.tpl-col-1of2-large img { width: 100% !important; max-width: 25px !important; }
+                .logo-space-left {width: 0 !important;}
+                .tpl-col-1of2-large .tpl-col-content {text-align: center !important;}
+             }
+             /*
+             -----------------------------------------------
+             END :: CUSTOM SMALL PHONE : LANDSCAPE
+             -----------------------------------------------
+             */
+
+             /*
+             -----------------------------------------------
+             START :: CUSTOM SMALL PHONE
+             -----------------------------------------------
+             */
+             @media only screen and (max-width: 340px)  {
+                /* Clients Affected: iPad, iPhone, Android 4.4  */
+                .tpl-col-1of2-large {min-width:100% !important;}
+                .tpl-col-1of2-large.tpl-col-1of2-large img { width: 100% !important; max-width: 25px !important; }
+                .logo-space-left {width: 0 !important;}
+                .tpl-col-1of2-large .tpl-col-content {text-align: center !important;}
+             }
+             /*
+             -----------------------------------------------
+             END :: CUSTOM SMALL PHONE
+             -----------------------------------------------
+             */
+
+
+   </style>
+</head>
+   <body bgcolor="#95c7a9">
+      <!-- MASTER WRAPPER -->
+      <table align="center" border="0" cellpadding="0" cellspacing="0" class="tpl-wrapper" width="100%">
+         <tr>
+            <td align="center" valign="top" width="100%">
+            <!-- ROW | ONE COLUMN | SPACER -->
+            <table align="center" bgcolor="#95c7a9" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" style="max-width: 600px;" width="100%">
+                  <tr>
+                     <td align="center" width="100%">
+                        <!--[if (gte mso 9)|(IE)]>
+                                <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                        <td width="600" align="left" valign="top">
+                                            <table width="600" align="left" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                                <tr>
+                                                    <td width="600" align="left" valign="top" class="tpl-col-outlook">
+                                                        <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+                        <table align="left" bgcolor="#95c7a9" border="0" cellpadding="0" cellspacing="0" class="tpl-col" id="spacer" width="100%">
+                           <tr>
+                              <td align="left" valign="top" width="100%">
+                                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                       <td align="left" valign="top">
+                                          <table align="center" border="0" cellpadding="0" cellspacing="0" class="tpl-col-content" width="100%">
+                                             <tr>
+                                                <td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #95c7a9; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+                                                   &nbsp;
+                                                </td>
+                                                <td align="center" class="tpl-col-content" height="20" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #95c7a9;" valign="middle">
+                                                   &nbsp;
+                                                </td>
+                                                <td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #95c7a9; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+                                                   &nbsp;
+                                                </td>
+                                             </tr>
+                                          </table>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </td>
+                           </tr>
+                        </table><!--[if (gte mso 9)|(IE)]>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <![endif]-->
+                     </td>
+                  </tr>
+               </table>
+               <!-- COMPONENT ROW : ONE COLUMN : IMAGE (Header img) -->
+               <table align="center" bgcolor="#95c7a9" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" width="100%" style="max-width:600px;">
+                  <tr>
+                     <td align="center" width="100%">
+                        <!--[if (gte mso 9)|(IE)]>
+                     <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                           <td width="600" align="center" valign="top">
+                              <table width="600" align="center" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                 <tr>
+                                    <td width="600" align="center" valign="top" class="tpl-col-outlook" style="display: inline-block;">
+                                    <![endif]-->
+                        <!-- inline-block 2002 & Outlook IEs -->
+                        <table align="center" bgcolor="#95c7a9" border="0" cellpadding="0" cellspacing="0" class="tpl-col" width="100%">
+                           <tr>
+                              <td align="center" valign="top" width="100%">
+                                 <table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                       <td align="center">
+                                          <table align="center" bgcolor="#ffffff" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                             <tr>
+                                                <td align="center" class="tpl-col-content" style="mso-line-height-rule: exactly; line-height:100%;" valign="top">
+                                                   <a href="http://www.walz.com" target="_blank" title="WALZ Certified Mail Automation - Together... we can make a difference."><img alt="WALZ Certified Mail Automation - Together... we can make a difference." border="0" src="images/Holiday_email_1127_2017_FINALHeader_Walz.jpg" style="max-width: 600px; height: auto; display:inline-block; background-color:transparent;border:none;" width="100%"></a>
+                                                </td>
+                                             </tr>
+                                          </table>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </td>
+                           </tr>
+                        </table><!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </td>
+                        </tr>
+                     </table>
+                     <![endif]-->
+                     </td>
+                  </tr>
+               </table>
+               <table align="center" bgcolor="#95c7a9" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" style="max-width: 600px;" width="100%">
+                  <tr>
+                     <td align="left" width="100%">
+                        <!--[if (gte mso 9)|(IE)]>
+                           <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                              <tr>
+                                 <td width="600" align="left" valign="top">
+                                    <table width="600" align="left" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                       <tr>
+                                          <td width="600" align="left" valign="top" class="tpl-col-outlook" style="display: inline-block;">
+                                          <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+                        <table align="left" bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" class="tpl-col-content" width="100%">
+                          <tr>
+                             <td align="left" bgcolor="#FFFFFF" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+                                &nbsp;
+                             </td>
+                          </tr>
+                           <tr>
+                              <td align="left" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 1px; mso-line-height-rule: exactly; line-height: 100%;" valign="top" width="60">
+                                 &nbsp;
+                              </td>
+                              <td align="left" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #000000; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+                                 Hello Name
+                              </td>
+                              <td align="left" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 1px; mso-line-height-rule: exactly; line-height: 100%;" valign="top" width="60">
+                                 &nbsp;
+                              </td>
+                           </tr>
+                           <tr>
+                              <td align="left" bgcolor="#FFFFFF" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+                                 &nbsp;
+                              </td>
+                           </tr>
+                           <tr>
+                              <td align="left" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 1px; mso-line-height-rule: exactly; line-height: 100%;" valign="top" width="60">
+                                 &nbsp;
+                              </td>
+                              <td align="left" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #000000; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+                                It's the most wonderful time of the year. A time to give thanks and give back to a cause that touches all our lives. As we take the time to enjoy the company of friends and loved ones this holiday season, we want to express our profound gratitude for your business and continued support.
+                              </td>
+                              <td align="left" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 1px; mso-line-height-rule: exactly; line-height: 100%;" valign="top" width="60">
+                                 &nbsp;
+                              </td>
+                           </tr>
+                           <tr>
+                              <td align="left" bgcolor="#FFFFFF" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+                                 &nbsp;
+                              </td>
+                           </tr>
+                           <tr>
+                              <td align="left" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 1px; mso-line-height-rule: exactly; line-height: 100%;" valign="top" width="60">
+                                 &nbsp;
+                              </td>
+                              <td align="left" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #000000; max-width: 600px; mso-line-height-rule: exactly; line-height: 120%;" valign="top">
+                                 In the spirit of this giving season, WALZ is extending its efforts to help others by making a donation to the American Cancer Society in remembrance of our coworkers and friends.
+                              </td>
+                              <td align="left" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height: 100%;" valign="top" width="60">
+                                 &nbsp;
+                              </td>
+                           </tr>
+                           <tr>
+                              <td align="left" bgcolor="#FFFFFF" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+                                 &nbsp;
+                              </td>
+                           </tr>
+                           <tr>
+                              <td align="left" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 1px; mso-line-height-rule: exactly; line-height: 100%;" valign="top" width="60">
+                                 &nbsp;
+                              </td>
+                              <td align="left" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 16px; color: #000000; max-width: 600px; mso-line-height-rule: exactly; line-height: 120%;" valign="top">
+                                 Salesperson
+                              </td>
+                              <td align="left" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height: 100%;" valign="top" width="60">
+                                 &nbsp;
+                              </td>
+                           </tr>
+                           <tr>
+                              <td align="left" bgcolor="#FFFFFF" colspan="3" height="40" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+                                 &nbsp;
+                              </td>
+                           </tr>
+                        </table><!--[if (gte mso 9)|(IE)]>
+                           </td>
+                         </tr>
+                       </table>
+                     </td>
+                  </tr>
+                </table>
+                <![endif]-->
+                     </td>
+                  </tr>
+               </table>
+               <table align="center" bgcolor="#95c7a9" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" style="max-width: 600px;" width="100%">
+                  <tr>
+                     <td align="center" width="100%">
+                        <!--[if (gte mso 9)|(IE)]>
+                           <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                              <tr>
+                                 <td width="600" align="center" valign="top">
+                                    <table width="600" align="center" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                       <tr>
+                                          <td width="600" align="center" valign="top" class="tpl-col-outlook" style="display: inline-block;">
+                                          <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+                        <table align="center" bgcolor="#95c7a9" border="0" cellpadding="0" cellspacing="0" class="tpl-col-content" width="100%">
+                           <tr>
+                              <td align="center" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size: 1px; mso-line-height-rule: exactly; line-height: 100%;" valign="top" width="50">
+                                 &nbsp;
+                              </td>
+                              <td align="center" bgcolor="#FFFFFF" style="font-family: Cambria, Times Italic, sans-serif; font-size: 30px; font-style: italic; font-weight: 600; color: #95c7a9; max-width: 600px; mso-line-height-rule: exactly; line-height: 120%;" valign="top">
+                                <em>Wishing you peace and happiness this holiday season and throughout the New Year.</em>
+                              </td>
+                              <td align="center" bgcolor="#FFFFFF" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; mso-line-height-rule: exactly; line-height: 100%;" valign="top" width="50">
+                                 &nbsp;
+                              </td>
+                           </tr>
+                           <tr>
+                              <td align="center" bgcolor="#FFFFFF" colspan="3" height="40" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+                                 &nbsp;
+                              </td>
+                           </tr>
+                        </table><!--[if (gte mso 9)|(IE)]>
+                           </td>
+                         </tr>
+                       </table>
+                     </td>
+                  </tr>
+                </table>
+                <![endif]-->
+                     </td>
+                  </tr>
+               </table>
+               <!-- ROW | ONE COLUMN | FOOTER -->
+               <table align="center" bgcolor="#95c7a9" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" style="max-width: 600px;" width="100%">
+                  <tr>
+                     <td align="center" width="100%">
+                        <!--[if (gte mso 9)|(IE)]>
+                     <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                           <td width="600" align="left" valign="top">
+                              <table width="600" align="left" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                 <tr>
+                                    <td width="600" align="left" valign="top" class="tpl-col-outlook" style="display: inline-block;">
+                                    <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+                        <table align="center" bgcolor="#95c7a9" border="0" cellpadding="0" cellspacing="0">
+                           <tr>
+                              <td align="left" bgcolor="#95c7a9" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+                                 &nbsp;
+                              </td>
+                           </tr>
+                           <tr>
+                              <td align="left" bgcolor="#95c7a9" style="font-family: Arial, Helvetica, sans-serif; font-size: 1px; mso-line-height-rule: exactly; line-height: 100%;" valign="top" width="20">
+                                 &nbsp;
+                              </td>
+                              <td align="center" bgcolor="#95c7a9" style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #ffffff; font-weight: normal; mso-line-height-rule: exactly; line-height: 100%;" valign="top">
+                                 <span class="canspamaddress">
+                                   &copy; LenderLive | 710 S. Ash St. #200 Glendale, CO 80246 | <a href="tel:1-877-516-8121" title="(877) 516-8121" style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #ffffff; font-weight: normal; mso-line-height-rule: exactly; line-height: 100%;" target="_blank"><span style="color: #ffffff;">(877) 516-8121</span></a> | <a href="http://www.lenderlive.com" title="lenderlive.com" style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #ffffff; font-weight: normal; mso-line-height-rule: exactly; line-height: 100%;" target="_blank"><span style="color: #ffffff;">lenderlive.com</span></a> | <a href="#" title="Unsubscribe" style="font-family: Arial, Helvetica, sans-serif; font-size: 11px; color: #ffffff; font-weight: normal; mso-line-height-rule: exactly; line-height: 100%;" target="_blank"><span style="color: #ffffff;">Unsubscribe</span></a>
+                                 </span>
+                              </td>
+                              <td align="left" bgcolor="#95c7a9" style="font-family: Arial, Helvetica, sans-serif; font-size: 1px; mso-line-height-rule: exactly; line-height: 100%;" valign="top" width="20">
+                                 &nbsp;
+                              </td>
+                           </tr>
+                           <tr>
+                              <td align="left" bgcolor="#95c7a9" colspan="3" height="20" style="font-size:1px; mso-line-height-rule: exactly; line-height:100%;" valign="top">
+                                 &nbsp;
+                              </td>
+                           </tr>
+                        </table><!--[if (gte mso 9)|(IE)]>
+                                    </td>
+                                 </tr>
+                              </table>
+                           </td>
+                        </tr>
+                     </table>
+                     <![endif]-->
+                     </td>
+                  </tr>
+               </table><!-- ROW | ONE COLUMN | SPACER -->
+               <table align="center" bgcolor="#95c7a9" border="0" cellpadding="0" cellspacing="0" class="tpl-outer" style="max-width: 600px;" width="100%">
+                  <tr>
+                     <td align="center" width="100%">
+                        <!--[if (gte mso 9)|(IE)]>
+                                <table width="600" align="center" cellpadding="0" cellspacing="0" border="0">
+                                    <tr>
+                                        <td width="600" align="left" valign="top">
+                                            <table width="600" align="left" cellpadding="0" cellspacing="0" border="0" class="tpl-col-outlook">
+                                                <tr>
+                                                    <td width="600" align="left" valign="top" class="tpl-col-outlook">
+                                                        <![endif]--><!-- inline-block 2002 & Outlook IEs -->
+                        <table align="left" bgcolor="#95c7a9" border="0" cellpadding="0" cellspacing="0" class="tpl-col" id="spacer" width="100%">
+                           <tr>
+                              <td align="left" valign="top" width="100%">
+                                 <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                    <tr>
+                                       <td align="left" valign="top">
+                                          <table align="center" border="0" cellpadding="0" cellspacing="0" class="tpl-col-content" width="100%">
+                                             <tr>
+                                                <td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #95c7a9; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+                                                   &nbsp;
+                                                </td>
+                                                <td align="center" class="tpl-col-content" height="10" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #95c7a9;" valign="middle">
+                                                   &nbsp;
+                                                </td>
+                                                <td align="left" style="font-family: Arial, Helvetica, sans-serif; font-size:1px; color: #95c7a9; mso-line-height-rule: exactly; line-height:100%;" valign="top" width="20">
+                                                   &nbsp;
+                                                </td>
+                                             </tr>
+                                          </table>
+                                       </td>
+                                    </tr>
+                                 </table>
+                              </td>
+                           </tr>
+                        </table><!--[if (gte mso 9)|(IE)]>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <![endif]-->
+                     </td>
+                  </tr>
+               </table>
+            </td><!-- END MASTER WRAPPER -->
+         </tr>
+      </table>
+   </body>
+</html>
